@@ -1,8 +1,17 @@
 'use client';
 import { useEffect, useState } from 'react';
-
-export default function CSR() {
-  const [pokemon, setPokemon] = useState<any>(null);
+interface Pokemon {
+    name: string;
+    weight: number;
+    height: number;
+    base_experience: number;
+    sprites: {
+      front_default: string;
+    };
+  }
+  
+  export default function CSR() {
+    const [pokemon, setPokemon] = useState<Pokemon | null>(null);
 
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/pokemon/ditto')
